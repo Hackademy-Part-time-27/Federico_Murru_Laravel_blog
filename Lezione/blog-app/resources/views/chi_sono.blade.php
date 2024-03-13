@@ -7,11 +7,8 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Benvenuto</h1>
-
-    <a href="/contatti">contatti</a>
-    <a href="/chi_sono">chi sono</a>
-
-
+    <h1>{{$title}}</h1>
+    
+    <p>{{$description}}</p>
 </body>
 </html>
