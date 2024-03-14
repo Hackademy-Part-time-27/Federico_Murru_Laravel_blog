@@ -7,7 +7,7 @@ Route::get('/', function () {
 })->name('welcome');
 
 
-Route::get('/contacts', function () {
+Route::get('/contacts-us', function () {
     return view('pages.contacts');
 })->name('contacts');
 
@@ -17,7 +17,7 @@ Route::get('/about-me', function () {
         "title" => "Titolo dinamico",
         "description" => "Breve descrizione ma dinamica"
     ]);
-})->name('about_me');
+})->name('about');
 
 // Route::get('/{id}', function ($id) {
 //     return "This is " . $id;
