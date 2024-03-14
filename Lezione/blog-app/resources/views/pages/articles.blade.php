@@ -27,7 +27,7 @@
 
         <div class="container">
 
-        <h1 class="title">Articoli</h1>
+            <h1>{{$title}}</h1>
     
         <div>
             @if($articles)
@@ -36,8 +36,6 @@
                 <li><a href="{{ route('article', $index)}}">{{ $article['title'] }}</a></li>
                 @endforeach
             </ul>
-        @else
-            <p>Non ci sono articoli disponibili</p>
         @endif
 
         </div>

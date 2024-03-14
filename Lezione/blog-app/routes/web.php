@@ -40,7 +40,11 @@ Route::get('/articles', function () {
 
     //$articles = [];
 
-    return view('pages.articles', ['articles' => $articles]);
+    return view(
+        'pages.articles',
+        ['articles' => $articles],
+        ["title" => "Articoli",]
+    );
 })->name('articles');
 
 
