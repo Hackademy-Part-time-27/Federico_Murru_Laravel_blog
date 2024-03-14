@@ -29,6 +29,7 @@ Route::get('/about-me', function () {
 // });
 
 
+
 Route::get('/articles', function () {
 
     $articles = [
@@ -43,14 +44,14 @@ Route::get('/articles', function () {
 })->name('articles');
 
 
-Route::get('/article/{article?}', function ($article) {
+Route::get('/article/{id?}', function ($id) {
 
-    $index = $article;
+    $index = $id;
 
     $articles = [
-        ['title' => 'Perché JS è migliore di PHP', 'description' => '...'],
-        ['title' => 'Perché PHP è migliore di JS', 'description' => '...'],
-        ['title' => 'A me non piace nessuno dei due', 'description' => '...'],
+        ['title' => 'Perché JS è migliore di PHP', 'category' => 'Categoria: Programmazione JS', 'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'],
+        ['title' => 'Perché PHP è migliore di JS', 'category' => 'Categoria: Programmazione PHP', 'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'],
+        ['title' => 'A me non piace nessuno dei due', 'category' => 'Categoria: Programmazione generica', 'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'],
     ];
 
     if (array_key_exists($index, $articles)) {
