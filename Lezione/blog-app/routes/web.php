@@ -3,7 +3,12 @@
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('welcome', [
+        "title" => "Ciao! Questo e il mio blog",
+        "description" => "Benvenuti nel mio blog Laravel! Qui 
+        troverete una raccolta delle mie esperienze,
+         conoscenze e risorse nel mondo dello sviluppo web con Laravel."
+    ]);
 })->name('welcome');
 
 
@@ -24,7 +29,7 @@ Route::get('/about-me', function () {
 // });
 
 
-Route::get('/articoli', function () {
+Route::get('/articles', function () {
 
     $articles = [
         ['title' => 'Perché JS è migliore di PHP', 'description' => '...'],
@@ -38,7 +43,7 @@ Route::get('/articoli', function () {
 })->name('articles');
 
 
-Route::get('/articolo/{article?}', function ($article) {
+Route::get('/article/{article?}', function ($article) {
 
     $index = $article;
 

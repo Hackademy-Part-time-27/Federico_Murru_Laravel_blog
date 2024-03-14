@@ -1,0 +1,26 @@
+body {
+    font-family: Arial, sans-serif;
+}
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+.navbar {
+    background-color:goldenrod;
+    padding: 10px;
+}
+.navbar a {
+    color: #333;
+    text-decoration: none;
+    transition: color 0.4s ease;
+}
+.navbar a:hover {
+    color: gray;
+}
+h1 {
+    color: #007bff;
+}
+p {
+    color: #555;
+}
