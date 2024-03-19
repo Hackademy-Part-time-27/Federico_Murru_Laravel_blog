@@ -18,6 +18,8 @@ class PageController extends Controller
     }
 
 
+
+
     public function welcome()
     {
         return view('welcome', [
@@ -41,6 +43,8 @@ class PageController extends Controller
     }
     public function articles()
     {
+        // dd($this->articles);
+
         return view(
             'pages.articles',
             ['articles' => $this->articles],
