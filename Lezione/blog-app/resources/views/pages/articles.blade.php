@@ -1,5 +1,5 @@
 <x-layout title="Articoli">
-
+    
         <div class="container">
             <h1>{{$title}}</h1>
             @if($articles)
@@ -22,6 +22,5 @@
 
         </div>
     </div>
-
 
 </x-layout>

@@ -1,7 +1,4 @@
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-
-
-<nav class="navbar navbar-expand-sm bg-body-warning">
+<nav class="navbar navbar-expand-sm bg-warning">
     <div class="container-fluid">
         <a class="nav-link active py-2 px-3" aria-current="page" href="{{ route('welcome') }}">
            <img class="me-2 img-thumbnail" src="{{ asset('img/logos.png') }}" alt="{{ config('app.name') }}" style="max-width: 40px; max-height: auto;">
@@ -33,6 +30,3 @@
     </div>
 </div>
 </nav>
-
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
