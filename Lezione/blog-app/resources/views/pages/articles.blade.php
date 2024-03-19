@@ -12,21 +12,24 @@
     <x-navbar/>
 
         <div class="container">
-
             <h1>{{$title}}</h1>
     
-        <div>
             @if($articles)
-            @if(count($articles) > 0)
-                @foreach($articles as $index => $article)
-                    @if($article['visible'])
-                       <x-card/>
-                    @endif
-                @endforeach
-            @else
-                <p>Non ci sono articoli disponibili</p>
-            @endif
+            @foreach($articles as $index => $article)
+                @if($article['visible'])
+                <x-card
+                :category="$article['category']"
+                :title="$article['title']"
+                :description="$article['description']"
+                :index="$index"
+                :route="route('article', $index)"
+                />
+                @endif
+            @endforeach
+        @else
+            <p>Non ci sono articoli disponibili</p>
         @endif
+    </div>
         
 
         </div>
