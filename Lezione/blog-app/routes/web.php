@@ -13,3 +13,11 @@ Route::get('/about-me', [PageController::class, 'aboutUs'])->name('about');
 Route::get('/articles', [PageController::class, 'articles'])->name('articles');
 
 Route::get('/article/{id?}', [PageController::class, 'article'])->name('article');
+
+
+
+// Route::fallback(function () {
+//     if (request()->route('id') > 4) {
+//         abort(404);
+//     }
+// });
