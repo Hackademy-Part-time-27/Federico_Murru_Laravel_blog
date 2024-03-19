@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PageController;
+
 
 Route::get('/', function () {
     return view('welcome', [
@@ -12,9 +14,8 @@ Route::get('/', function () {
 })->name('welcome');
 
 
-Route::get('/contacts-us', function () {
-    return view('pages.contacts');
-})->name('contacts');
+
+Route::get('/contacts-us', [PageController::class, 'contacts'])->name('contacts');
 
 
 Route::get('/about-me', function () {
