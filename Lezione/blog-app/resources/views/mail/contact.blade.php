@@ -7,7 +7,7 @@
     <title>Document</title>
 </head>
 <body>
-    Hai ricevuto un nuovo messaggio dal Blog: {{ config('app.name') }}
+    Hai ricevuto una email dal From: {{ config('app.name') }}
     <br>
     Email: {{ $email }}<br>
     Messaggio: {!! nl2br(e($content)) !!}

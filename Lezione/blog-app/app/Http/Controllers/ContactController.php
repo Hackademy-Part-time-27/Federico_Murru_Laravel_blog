@@ -25,8 +25,7 @@ class ContactController extends Controller
         // return (new \App\Mail\ContactMail($request->email, $request->message))->render();
 
         //Analyse data
-        \Illuminate\Support\Facades\Mail::to('admin@example.com')
-            ->send(new \App\Mail\ContactMail($request->email, $request->message));
+        \Illuminate\Support\Facades\Mail::to('admin@example.com')->send(new \App\Mail\ContactMail($request->email, $request->message));
 
         return redirect()->back()->with(['success' => 'Request successfully sent!']);
     }
