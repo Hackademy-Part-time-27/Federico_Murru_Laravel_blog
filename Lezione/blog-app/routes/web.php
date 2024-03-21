@@ -2,11 +2,13 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PageController;
+use App\Http\Controllers\ContactController;
 
 
 Route::get('/', [PageController::class, 'welcome'])->name('welcome');
 
-Route::get('/contacts-us', [PageController::class, 'contacts'])->name('contacts');
+Route::get('/contacts-us', [ContactController::class, 'viewForm'])->name('contacts');
+Route::post("/contacts-us/send", [ContactController::class, 'send'])->name('contacts.send');
 
 Route::get('/about-me', [PageController::class, 'aboutUs'])->name('about');
 
