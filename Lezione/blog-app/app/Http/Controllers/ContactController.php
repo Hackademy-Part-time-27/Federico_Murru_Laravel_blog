@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 class ContactController extends Controller
-{  
+{
     public function viewForm()
     {
         return view('pages.contacts');
@@ -17,10 +17,10 @@ class ContactController extends Controller
 
         // $request->email // contiente il valore inserito nel campo input con name="email"
         // $request->message // contiente il valore inserito nel campo input (textarea) con name="message"
-        
-        if($request->email == '' || $request->message == '') {
-            return redirect()->back()->with(['error' => 'I campi non possono essere vuoti.']);
-        }
+
+        // if($request->email == '' || $request->message == '') {
+        //     return redirect()->back()->with(['error' => 'I campi non possono essere vuoti.']);
+        // }
 
         /*
         if($request->email == '') {
@@ -33,9 +33,9 @@ class ContactController extends Controller
         */
 
         /* Per visualizzare una preview nel browser della mail */
-        return (new \App\Mail\ContactMail($request->email, $request->message))->render();
+        // return (new \App\Mail\ContactMail($request->email, $request->message))->render();
 
-        // Elaborazione dei dati...
+        // // Elaborazione dei dati...
         \Illuminate\Support\Facades\Mail::to('admin@example.com')
             ->send(new \App\Mail\ContactMail($request->email, $request->message));
 
