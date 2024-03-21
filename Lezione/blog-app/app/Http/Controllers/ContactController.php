@@ -15,19 +15,19 @@ class ContactController extends Controller
     {
         //dd($request->all());
 
-        // $request->email // contiente il valore inserito nel campo input con name="email"
-        // $request->message // contiente il valore inserito nel campo input (textarea) con name="message"
+        // $request->email // 
+        // $request->message // 
 
         if ($request->email == '' || $request->message == '') {
-            return redirect()->back()->with(['error' => 'I campi non possono essere vuoti.']);
+            return redirect()->back()->with(['error' => 'Fields cannot be empty.']);
         }
 
         // return (new \App\Mail\ContactMail($request->email, $request->message))->render();
 
-        // // Elaborazione dei dati...
+        //Analyse data
         \Illuminate\Support\Facades\Mail::to('admin@example.com')
             ->send(new \App\Mail\ContactMail($request->email, $request->message));
 
-        return redirect()->back()->with(['success' => 'Richiesta inviata correttamente!']);
+        return redirect()->back()->with(['success' => 'Request successfully sent!']);
     }
 }
