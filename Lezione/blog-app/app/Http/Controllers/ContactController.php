@@ -22,7 +22,6 @@ class ContactController extends Controller
             return redirect()->back()->with(['error' => 'I campi non possono essere vuoti.']);
         }
 
-
         // return (new \App\Mail\ContactMail($request->email, $request->message))->render();
 
         // // Elaborazione dei dati...
