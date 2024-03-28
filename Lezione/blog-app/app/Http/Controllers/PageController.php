@@ -41,8 +41,9 @@ class PageController extends Controller
     }
 
 
-    public function article(Article $article)
+    public function article($article)
     {
+        $article = Article::find($article);
         return view('pages.article', ['article' => $article]);
     }
 }
