@@ -1,5 +1,5 @@
 <x-layout title="Articoli">
-    <h1 class="title">Articoli</h1>
+    <h1 class="title" style="color: red">Articoli</h1>
 
 
         <div class="container">
