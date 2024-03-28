@@ -4,24 +4,23 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Models\Article;
+
 class PageController extends Controller
 {
 
-    public $articles;
-    public function __construct()
-    {
-        $this->articles = [
-            ['title' => 'Perché JS è migliore di PHP', 'category' => 'Categoria: Programmazione JS', 'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.', "visible" => true],
-            ['title' => 'Perché PHP è migliore di JS', 'category' => 'Categoria: Programmazione PHP', 'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.', "visible" => true],
-            ['title' => 'A me non piace nessuno dei due', 'category' => 'Categoria: Programmazione generica', 'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.', "visible" => true],
-        ];
-    }
 
+    // public function welcome()
+    // {
+    //     $title = config('app.name');
 
-
+    //     return view('welcome', compact('title'));
+    // }
 
     public function welcome()
     {
+
+        $title = config('app.name');
         return view('welcome', [
             "title" => "Ciao! Questo e il mio blog",
             "description" => "Benvenuti nel mio blog Laravel! Qui 
@@ -29,6 +28,7 @@ class PageController extends Controller
         conoscenze e risorse nel mondo dello sviluppo web con Laravel."
         ]);
     }
+
     public function contacts()
     {
         return view('pages.contacts');
@@ -41,23 +41,17 @@ class PageController extends Controller
             "description" => "Breve descrizione ma dinamica"
         ]);
     }
+
     public function articles()
     {
-        // dd($this->articles);
+        $articles = Article::where('visible', true)->get();
 
-        return view(
-            'pages.articles',
-            ['articles' => $this->articles],
-            ["title" => "Articoli",]
-        );
+        return view('pages.articles', ['articles' => $articles]);
     }
-    public function article($id)
+
+
+    public function article(Article $article)
     {
-        $article = $this->articles[$id];
-        if (!$article['visible']) {
-            abort(404);
-        } else {
-            return view('pages.article', ['article' => $article]);
-        }
+        return view('pages.article', ['article' => $article]);
     }
 }

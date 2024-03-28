@@ -1,7 +1,8 @@
 <x-layout title="Articoli">
-    
+    <h1 class="title">Articoli</h1>
+
+
         <div class="container">
-            <h1>{{$title}}</h1>
             @if($articles)
             @foreach($articles as $index => $article)
                 @if($article['visible'])
