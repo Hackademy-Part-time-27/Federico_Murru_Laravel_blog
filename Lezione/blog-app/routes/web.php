@@ -1,5 +1,7 @@
 <?php
 
+
+use App\Http\Controllers\ArticleController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\ContactController;
@@ -11,6 +13,8 @@ Route::get('/contacts-us', [ContactController::class, 'viewForm'])->name('contac
 Route::post("/contacts-us/send", [ContactController::class, 'send'])->name('contacts.send');
 
 Route::get('/about-me', [PageController::class, 'aboutUs'])->name('about');
+
+Route::get('/articles/create', [ArticleController::class, 'create'])->name('articles.create');
 
 Route::get('/articles', [PageController::class, 'articles'])->name('articles');
 
