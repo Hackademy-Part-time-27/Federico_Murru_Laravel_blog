@@ -9,17 +9,8 @@ use App\Models\Article;
 class PageController extends Controller
 {
 
-
-    // public function welcome()
-    // {
-    //     $title = config('app.name');
-
-    //     return view('welcome', compact('title'));
-    // }
-
     public function welcome()
     {
-
         $title = config('app.name');
         return view('welcome', [
             "title" => "Ciao! Questo e il mio blog",
