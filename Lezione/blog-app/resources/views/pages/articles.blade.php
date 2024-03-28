@@ -7,12 +7,11 @@
             @foreach($articles as $index => $article)
                 @if($article['visible'])
                 <x-card
-                :category="$article['category']"
-                :title="$article['title']"
-                :description="$article['description']"
-                :index="$index"
-                :route="route('article', $index)"
-                />
+                :category="$article->category"
+                :title="$article->title"
+                :description="$article->description"
+                :route="route('article', $article)"
+            />
                 @endif
             @endforeach
         @else
