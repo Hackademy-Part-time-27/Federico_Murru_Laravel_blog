@@ -43,7 +43,7 @@ class PageController extends Controller
 
     public function article($article)
     {
-        $article = Article::find($article);
+        $article = Article::findOrFail($article);
         return view('pages.article', ['article' => $article]);
     }
 }
