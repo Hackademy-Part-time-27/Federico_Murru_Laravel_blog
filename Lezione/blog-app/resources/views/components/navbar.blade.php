@@ -22,7 +22,7 @@
               Dropdown
             </a>
             <ul class="dropdown-menu dropdown-menu-end">
-              <li><a class="dropdown-item" href="#">Action</a></li>
+              <li><a class="dropdown-item" href={{route('articles.index')}}>Manage Articles</a></li>
               <li><a class="dropdown-item" href="#">Another action</a></li>
             </ul>
           </li>

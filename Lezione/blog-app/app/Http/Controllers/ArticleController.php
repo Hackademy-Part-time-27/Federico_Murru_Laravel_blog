@@ -46,10 +46,30 @@ class ArticleController extends Controller
     }
     public function store(StoreArticleRequest $request)
     {
-        Article::create($request->all());
-        return redirect()->back()->with(['success' => 'Articolo creato correttamente!']);
+        $article = Article::create($request->all());
+
+        // Qui ci assicuriamo che il file esista e sia stato caricato correttamente
+        if ($request->hasFile('image') && $request->file('image')->isValid()) {
+
+            $extension = $request->file('image')->extension();
+
+            $fileName = 'image.' . $extension;
+
+            $fileName = $request->file('image')->getClientOriginalName();
+
+            $fileName = uniqid('image_') . '.' . $extension;
+
+            // storeAs restituisce il percorso relativo, a partire da storage/app, del file salvato su disco
+            $article->image = $request->file('image')->storeAs('public/images/' . $article->id, $fileName);
+
+            $article->save();
+        }
+
+        return redirect()->route('articles.index')->with(['success' => 'Articolo creato correttamente!']);
     }
 }
+
+
 
 
 // ['title' => 'Perché JS è migliore di PHP', 'category' => 'Categoria: Programmazione JS', 'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.', "visible" => true],

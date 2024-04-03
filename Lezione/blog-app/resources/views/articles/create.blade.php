@@ -1,6 +1,12 @@
 <x-layout title="Creater Articles">
+
+    <div class="row">
+        <div class="col-lg-6 mx-auto">
+          
 <h1>Create your Articles</h1>
 
+  <a href="{{ route('articles.index') }}" class="small text-secondary">Back</a>
+    
 <x-success />
 
 {{--
