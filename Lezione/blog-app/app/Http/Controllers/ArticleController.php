@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+
+use App\Http\Requests\StoreArticleRequest;
 use App\Models\Article;
 
 
@@ -35,7 +37,7 @@ class ArticleController extends Controller
 
         return view('articles.create');
     }
-    public function store(Request $request)
+    public function store(StoreArticleRequest $request)
     {
         Article::create($request->all());
         return redirect()->back()->with(['success' => 'Articolo creato correttamente!']);
