@@ -14,8 +14,8 @@
 --}}
 
 <div class="mt-5">
+    @csrf
     <form action="{{ route('articles.store') }}" method="POST">
-        @csrf
         <div class="row g-3">
             <div class="col-12">
                 <label for="title">Title</label>

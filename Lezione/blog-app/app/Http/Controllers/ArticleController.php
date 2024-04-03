@@ -37,7 +37,8 @@ class ArticleController extends Controller
     }
     public function store(Request $request)
     {
-        dd($request->all());
+        Article::create($request->all());
+        return redirect()->back()->with(['success' => 'Articolo creato correttamente!']);
     }
 }
 
