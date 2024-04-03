@@ -27,4 +27,11 @@ class StoreArticleRequest extends FormRequest
             'description' => 'required|max:255',
         ];
     }
+    public function messages(): array
+    {
+        return [
+            'title.required' => 'Title field is mandatory.',
+            'title.max' => 'The Title field may not be longer than :max characters.',
+        ];
+    }
 }
