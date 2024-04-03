@@ -14,7 +14,7 @@
 --}}
 
 <div class="mt-5">
-    <form action="" method="POST" enctype="multipart/form-data">
+    <form action="{{ route('articles.store') }}" method="POST">
         @csrf
         <div class="row g-3">
             <div class="col-12">
