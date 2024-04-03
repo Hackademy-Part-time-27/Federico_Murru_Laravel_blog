@@ -17,6 +17,6 @@
     <img class="img-fluid" src="{{ Storage::url($article->image) }}" alt="{{ $article->title }}">
     @endif
     
-    <a href="{{ route('articles') }}" class="btn btn-primary mb-3">Indietro</a>
+    <a href="{{ route('articles') }}" class="btn btn-primary my-3">Indietro</a>
 
 </x-layout>
