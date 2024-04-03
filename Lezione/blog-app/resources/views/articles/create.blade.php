@@ -43,7 +43,7 @@
                 @error('description') <span class="text-danger small fw-bold">{{ $message }}</span> @enderror
             </div>
             <div class="col-12">
-                <label for="image">Immagine</label>
+                <label for="image">Image</label>
                 <input type="file" name="image" id="image"
                     class="form-control @error('image') is-invalid @enderror">
                 @error('image') <span class="text-danger small fw-bold">{{ $message }}</span> @enderror

@@ -62,7 +62,7 @@ class ArticleController extends Controller
             // storeAs restituisce il percorso relativo, a partire da storage/app, del file salvato su disco
             $article->image = $request->file('image')->storeAs('public/images/' . $article->id, $fileName);
 
-            $article->save();
+            // $article->save();
         }
 
         return redirect()->route('articles.index')->with(['success' => 'Articolo creato correttamente!']);
