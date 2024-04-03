@@ -14,12 +14,12 @@ Route::post("/contacts-us/send", [ContactController::class, 'send'])->name('cont
 
 Route::get('/about-me', [PageController::class, 'aboutUs'])->name('about');
 
-Route::get('/articles/create', [ArticleController::class, 'create'])->name('articles.create');
-
 Route::get('/articles', [PageController::class, 'articles'])->name('articles');
 
 Route::get('/article/{id?}', [PageController::class, 'article'])->name('article');
 
+Route::get('account/articles/create', [ArticleController::class, 'create'])->name('articles.create');
+Route::post('account/articles/store', [ArticleController::class, 'store'])->name('articles.store');
 
 
 // Route::fallback(function () {

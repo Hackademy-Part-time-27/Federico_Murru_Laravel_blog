@@ -32,6 +32,9 @@ class ArticleController extends Controller
         //     'category' => 'Tempo libero',
         //     'description' => '...',
         // ]);
+
+        return view('articles.create');
+
     }
 }
 
