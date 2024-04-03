@@ -3,8 +3,8 @@
         <div class="col-md-6">
             <h1>Articoli</h1>
         </div>
-        <div class="col-md-6 text-end">
-            <a href="{{ route('articles.create') }}" class="btn btn-success">Crea articolo</a>
+        <div class="col-md-6 text-end my-2">
+            <a href="{{ route('articles.create') }}" class="btn btn-success">Create article</a>
         </div>
     </div>
 
