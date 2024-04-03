@@ -10,8 +10,15 @@ use App\Models\Article;
 
 class ArticleController extends Controller
 {
+
+    public function index()
+    {
+        return view('articles.index', ['articles' => Article::all()]);
+    }
+
     public function create()
     {
+
         ///1° metodo
         // $article = new Article();
 

@@ -36,12 +36,12 @@
                     rows="5" maxlength="255">{{ old('description') }}</textarea>
                 @error('description') <span class="text-danger small fw-bold">{{ $message }}</span> @enderror
             </div>
-            {{-- <div class="col-12">
+            <div class="col-12">
                 <label for="image">Immagine</label>
                 <input type="file" name="image" id="image"
                     class="form-control @error('image') is-invalid @enderror">
                 @error('image') <span class="text-danger small fw-bold">{{ $message }}</span> @enderror
-            </div> --}}
+            </div>
             <div class="col-12">
                 <button type="submit" class="btn btn-primary mt-2">Create</button>
             </div>
