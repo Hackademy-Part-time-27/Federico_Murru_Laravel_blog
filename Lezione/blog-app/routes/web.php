@@ -18,11 +18,6 @@ Route::get('/articles', [PageController::class, 'articles'])->name('articles');
 
 Route::get('/article/{id?}', [PageController::class, 'article'])->name('article');
 
-// Route::get('/account/articles', [ArticleController::class, 'index'])->name('articles.index');
-// Route::get('account/articles/create', [ArticleController::class, 'create'])->name('articles.create');
-// Route::post('account/articles/store', [ArticleController::class, 'store'])->name('articles.store');
-
-
 
 Route::prefix('account')->middleware('auth')->group(function () {
 
