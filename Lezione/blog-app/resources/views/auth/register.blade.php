@@ -5,7 +5,7 @@
 
             <div class="mt-5">
                 <form action="/register" method="POST">
-                    @csrf
+                @csrf
                     <div class="row g-3">
                         <div class="col-12">
                             <label for="name">Nome</label>

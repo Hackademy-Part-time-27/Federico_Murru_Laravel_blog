@@ -36,12 +36,12 @@
               </ul>
           </li>
         @else
-          <li class="navbar-nav">
-            <a class="nav-link" href="/register">Registrati</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/login">Accedi</a>
-          </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/register">Registrati</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/login">Accedi</a>
+        </li>
         @endauth
       </ul>
     </div>

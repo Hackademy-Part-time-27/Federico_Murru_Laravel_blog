@@ -18,13 +18,19 @@ Route::get('/articles', [PageController::class, 'articles'])->name('articles');
 
 Route::get('/article/{id?}', [PageController::class, 'article'])->name('article');
 
-Route::get('/account/articles', [ArticleController::class, 'index'])->name('articles.index');
-Route::get('account/articles/create', [ArticleController::class, 'create'])->name('articles.create');
-Route::post('account/articles/store', [ArticleController::class, 'store'])->name('articles.store');
+// Route::get('/account/articles', [ArticleController::class, 'index'])->name('articles.index');
+// Route::get('account/articles/create', [ArticleController::class, 'create'])->name('articles.create');
+// Route::post('account/articles/store', [ArticleController::class, 'store'])->name('articles.store');
 
 
-// Route::fallback(function () {
-//     if (request()->route('id') > 4) {
-//         abort(404);
-//     }
-// });
+
+Route::prefix('account')->middleware('auth')->group(function () {
+
+    Route::get('/', [App\Http\Controllers\AccountController::class, 'index'])->name('account.index');
+
+    Route::get('/articles', [ArticleController::class, 'index'])->name('articles.index');
+    Route::get('/articles/create', [ArticleController::class, 'create'])->name('articles.create');
+    Route::post('/articles/store', [ArticleController::class, 'store'])->name('articles.store');
+});
+
+//Route::get('account', [App\Http\Controllers\AccountController::class, 'index'])->name('account.index');
