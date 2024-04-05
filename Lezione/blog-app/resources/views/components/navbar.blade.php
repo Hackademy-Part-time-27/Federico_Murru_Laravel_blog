@@ -10,23 +10,43 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
-                <a class="nav-link py-2 px-3" style=""; href="{{ route('articles') }}">Articoli</a>
-                <a class="nav-link py-2 px-3" href="{{ route('about') }}">Chi Sono</a>
-                <a class="nav-link py-2 px-3" aria-current="page" href="{{ route('contacts') }}">Contatti</a>
+                <a class="nav-link py-2" style=""; href="{{ route('articles') }}">Articoli</a>
+                <a class="nav-link py-2" href="{{ route('about') }}">Chi Sono</a>
+                <a class="nav-link py-2" aria-current="page" href="{{ route('contacts') }}">Contatti</a>
             </div>
     </div>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-        <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle nav-link py-2 px-3 mt-1" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Dropdown
-            </a>
-            <ul class="dropdown-menu dropdown-menu-end">
-              <li><a class="dropdown-item" href={{route('articles.index')}}>Manage Articles</a></li>
-              <li><a class="dropdown-item" href="#">Another action</a></li>
-            </ul>
+   
+   
+      <ul class="navbar-nav ms-auto mb-lg-0">
+        @auth
+          <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                {{ auth()->user()->email }}
+              </a>
+              <ul class="dropdown-menu dropdown-menu-end">
+                <li><a class="dropdown-item" href="{{ route('articles.index') }}">Gestione Articoli</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li>
+                  <form action="/logout" method="POST">
+                    @csrf
+                    <button type="submit" class="dropdown-item">Esci</button>
+                  </form>
+                </li>
+              </ul>
           </li>
-    </ul>
+        @else
+          <li class="navbar-nav">
+            <a class="nav-link" href="/register">Registrati</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/login">Accedi</a>
+          </li>
+        @endauth
+      </ul>
     </div>
-</div>
+  </div>
 </nav>
+
+
+
