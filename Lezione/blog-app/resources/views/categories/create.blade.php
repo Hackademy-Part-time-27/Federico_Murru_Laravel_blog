@@ -2,6 +2,7 @@
     <a href="{{ route('categories.index') }}" class="text-secondary">indietro</a>
     <h1>Crea Categoria</h1>
 
+
     <x-success />
 
     <form action="{{ route('categories.store') }}" method="POST">

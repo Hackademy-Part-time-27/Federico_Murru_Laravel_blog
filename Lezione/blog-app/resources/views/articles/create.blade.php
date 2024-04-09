@@ -31,8 +31,11 @@
             </div>
             <div class="col-12">
                 <label for="category">Category</label>
-                <input type="text" name="category" id="category"
-                    class="form-control @error('category') is-invalid @enderror" maxlength="50" value="{{ old('category') }}">
+                    <select name="category" id="category" class="form-control">
+                    @foreach($categories as $category)
+                    <option value="{{ $category->name }}">{{ $category->name }}</option>
+                    @endforeach
+                </select>
                 @error('category') <span class="text-danger small fw-bold">{{ $message }}</span> @enderror
             </div>
             <div class="col-12">

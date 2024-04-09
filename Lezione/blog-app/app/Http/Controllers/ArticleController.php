@@ -42,7 +42,7 @@ class ArticleController extends Controller
         //     'description' => '...',
         // ]);
 
-        return view('articles.create');
+        return view('articles.create', ['categories' => \App\Models\Category::all()]);
     }
     public function store(StoreArticleRequest $request)
     {
