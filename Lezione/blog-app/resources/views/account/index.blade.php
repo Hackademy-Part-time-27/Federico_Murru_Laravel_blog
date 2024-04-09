@@ -1,4 +1,4 @@
 <x-layout>
-    <h1>Benvenuto {{ auth()->user()->name }}!</h1>
+    <h1>Ciao {{ auth()->user()->name }}!</h1>
 
 </x-layout>

@@ -1,5 +1,5 @@
 <x-layout title="Modifica Categoria">
-    <a href="{{ route('categories.index') }}" class="text-secondary">indietro</a>
+    <a href="{{ route('articles.index') }}" class="text-secondary">indietro</a>
     <h1>Modifica Articoli</h1>
 
     <x-success />
@@ -11,20 +11,23 @@
             <div class="col-12">
                             <label for="title">Title</label>
                             <input type="text" name="title" id="title"
-                                class="form-control @error('title') is-invalid @enderror" maxlength="150" value="{{ old('title') }}">
+                                class="form-control @error('title') is-invalid @enderror" maxlength="150" value="{{ old('title', $article->title) }}">
                             @error('title') <span class="text-danger small fw-bold">{{ $message }}</span> @enderror
                         </div>
                         <div class="col-12">
-                            <label for="article">Category</label>
-                            <input type="text" name="title" id="title"
-                                class="form-control @error('category') is-invalid @enderror" maxlength="150" value="{{ old('category') }}">
+                            <label for="category">Category</label>
+                                <select name="category" id="category" class="form-control">
+                                @foreach($categories as $category)
+                                <option value="{{ $category->name }}" @selected($category->name === $article->category)>{{ $category->name }}</option>
+                                @endforeach
+                            </select>
                             @error('category') <span class="text-danger small fw-bold">{{ $message }}</span> @enderror
                         </div>
                         <div class="col-12">
                             <label for="description">Description</label>
                             <textarea name="description" id="description"
                                 class="form-control @error('description') is-invalid @enderror"
-                                rows="5" maxlength="255">{{ old('description') }}</textarea>
+                                rows="5" maxlength="255">{{ old('description', $article->description) }}</textarea>
                             @error('description') <span class="text-danger small fw-bold">{{ $message }}</span> @enderror
                         </div>
                         <div class="col-12">
@@ -33,8 +36,6 @@
                                 class="form-control @error('image') is-invalid @enderror">
                             @error('image') <span class="text-danger small fw-bold">{{ $message }}</span> @enderror
                         </div>
-
-
             <div class="col-12">
                 <button type="submit" class="btn btn-primary">Modifica</button>
             </div>

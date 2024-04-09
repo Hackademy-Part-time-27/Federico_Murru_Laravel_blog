@@ -71,10 +71,13 @@ class ArticleController extends Controller
 
     public function edit(Article $article)
     {
-        return view('articles.edit', ['article' => $article]);
+        return view('articles.edit', [
+            'article' => $article,
+            'categories' => \App\Models\Category::all()
+        ]);
     }
 
-    public function update(Request $request, Article $article)
+    public function update(StoreArticleRequest $request, Article $article)
     {
         $article->update($request->all());
         return redirect()->route('articles.index')->with('success', 'Articolo aggiornato con successo.');
