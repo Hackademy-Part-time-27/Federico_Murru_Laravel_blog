@@ -4,13 +4,13 @@
             <h1>Elenco Categorie</h1>
         </div>
         <div class="col-lg-6 text-end">
-            <a href="{{ route('categories.create') }}" class="btn btn-success">Crea Categoria</a>
+            <a href="{{ route('categories.create') }}" class="btn btn-success mb-2">Crea Categoria</a>
         </div>
     </div>
 
     <x-success />
 
-    <table class="table table-bordered mt-5">
+    <table class="table table-bordered mt-4">
         <thead>
             <th>#</th>
             <th>Nome</th>
