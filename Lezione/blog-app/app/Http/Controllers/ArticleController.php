@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\http\controller\Category;
 
 use App\Http\Requests\StoreArticleRequest;
 use App\Models\Article;
@@ -66,6 +67,23 @@ class ArticleController extends Controller
         }
 
         return redirect()->route('articles.index')->with(['success' => 'Articolo creato correttamente!']);
+    }
+
+    public function edit(Article $article)
+    {
+        return view('articles.edit', ['article' => $article]);
+    }
+
+    public function update(Request $request, Article $article)
+    {
+        $article->update($request->all());
+        return redirect()->route('articles.index')->with('success', 'Articolo aggiornato con successo.');
+    }
+
+    public function destroy(Article $article)
+    {
+        $article->delete();
+        return redirect()->route('articles.index')->with('success', 'Articolo cancellato con successo.');
     }
 }
 

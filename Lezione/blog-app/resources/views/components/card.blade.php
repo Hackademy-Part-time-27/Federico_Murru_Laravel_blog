@@ -3,8 +3,8 @@
         <span>{{ $category }}</span>
         <h4>{{ $title }}</h4>
         <p>{{ $description }}</p>
-        <div class="text-end">
-            <a class="stretched-link" href="{{ $route }}">Leggi...</a>
+        <div class="text-end"> 
+            <a class="" href="{{ $route }}">Leggi...</a>
         </div>
     </div>
 </article>

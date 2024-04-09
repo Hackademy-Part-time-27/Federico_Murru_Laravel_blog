@@ -34,7 +34,16 @@
                         <span class="badge text-bg-danger">No</span>
                         @endif
                     </td>
-                    <td></td>
+                    <td>
+                       <a href="{{ route('articles.edit', $article) }}"> 
+                        <button type="submit" class="btn btn-primary">Modifica</button></a>
+
+                        <form class="d-inline ms-2" action="{{ route('articles.destroy', $article) }}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn btn-danger btn">Cancella</button>
+                        </form>
+                    </td>
                 </tr>
                 @endforeach
             </tbody>

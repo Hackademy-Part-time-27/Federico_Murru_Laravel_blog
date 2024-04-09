@@ -12,12 +12,8 @@ class PageController extends Controller
     public function welcome()
     {
         $title = config('app.name');
-        return view('welcome', [
-            "title" => "Ciao! Questo e il mio blog",
-            "description" => "Benvenuti nel mio blog Laravel! Qui 
-        troverete una raccolta delle mie esperienze,
-        conoscenze e risorse nel mondo dello sviluppo web con Laravel."
-        ]);
+        $articles = Article::all();
+        return view('welcome', compact('title', 'articles'));
     }
 
     public function contacts()
