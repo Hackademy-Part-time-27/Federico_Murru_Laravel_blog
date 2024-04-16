@@ -76,6 +76,10 @@ class ArticleController extends Controller
 
     public function edit(Article $article)
     {
+        if ($article->user_id !== auth()->user()->id) {
+            abort(403);
+        }
+
         return view('articles.edit', [
             'article' => $article,
             'categories' => \App\Models\Category::all()
@@ -84,14 +88,20 @@ class ArticleController extends Controller
 
     public function update(StoreArticleRequest $request, Article $article)
     {
+        if ($article->user_id !== auth()->user()->id) {
+            abort(403);
+        }
         $article->update($request->all());
-        return redirect()->route('articles.index')->with('success', 'Articolo aggiornato con successo.');
+        return redirect()->route('articles.index')->with('success', 'Article successfully updated.');
     }
 
     public function destroy(Article $article)
     {
+        if ($article->user_id !== auth()->user()->id) {
+            abort(403);
+        }
         $article->delete();
-        return redirect()->route('articles.index')->with('success', 'Articolo cancellato con successo.');
+        return redirect()->route('articles.index')->with('success', 'Article successfully deleted..');
     }
 }
 
