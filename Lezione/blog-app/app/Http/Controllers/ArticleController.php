@@ -21,6 +21,7 @@ class ArticleController extends Controller
         return view('articles.index', ['articles' => $articles]);
     }
 
+
     public function create()
     {
 
@@ -54,6 +55,8 @@ class ArticleController extends Controller
         // dd($request->all());
         $article = Article::create(array_merge($request->all(), ['user_id' => auth()->user()->id]));
 
+        $article->categories()->attach($request->categories);
+
         // Qui ci assicuriamo che il file esista e sia stato caricato correttamente
         if ($request->hasFile('image') && $request->file('image')->isValid()) {
 
@@ -82,7 +85,7 @@ class ArticleController extends Controller
 
         return view('articles.edit', [
             'article' => $article,
-            'categories' => \App\Models\Category::all()
+            'categories' => \App\Models\Category::all(),
         ]);
     }
 
@@ -91,7 +94,15 @@ class ArticleController extends Controller
         if ($article->user_id !== auth()->user()->id) {
             abort(403);
         }
+
         $article->update($request->all());
+
+        // $article->categories()->detach(1);
+        // $article->categories()->detach([1, 2]);
+        $article->categories()->detach();
+        $article->categories()->attach($request->categories);
+
+
         return redirect()->route('articles.index')->with('success', 'Article successfully updated.');
     }
 
@@ -100,6 +111,9 @@ class ArticleController extends Controller
         if ($article->user_id !== auth()->user()->id) {
             abort(403);
         }
+
+        $article->categories()->detach();
+
         $article->delete();
         return redirect()->route('articles.index')->with('success', 'Article successfully deleted..');
     }

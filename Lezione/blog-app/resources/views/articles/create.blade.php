@@ -18,7 +18,6 @@
 </ul>
 @endif
 --}}
-
 <div class="mt-5">
     <form action="{{ route('articles.store') }}" method="POST" enctype="multipart/form-data">
         @csrf
@@ -30,13 +29,16 @@
                 @error('title') <span class="text-danger small fw-bold">{{ $message }}</span> @enderror
             </div>
             <div class="col-12">
-                <label for="category">Category</label>
-                <select name="category_id" id="category_id" class="form-control">
-                    @foreach($categories as $category)
-                    <option value="{{ $category->id }}">{{ $category->name }}</option>
-                    @endforeach
-                </select>
-                @error('category_id') <span class="text-danger small fw-bold">{{ $message }}</span> @enderror
+                <label for="categories">Category</label>
+                @foreach($categories as $category)
+                <div class="form-check">
+                    <input class="form-check-input" name="categories[]" type="checkbox" value="{{ $category->id }}">
+                    <label class="form-check-label" for="flexCheckDefault">
+                        {{ $category->name }}
+                    </label>
+                </div>
+                @endforeach
+                @error('categories') <span class="text-danger small fw-bold">{{ $message }}</span> @enderror
             </div>
             <div class="col-12">
                 <label for="description">Description</label>
@@ -52,7 +54,7 @@
                 @error('image') <span class="text-danger small fw-bold">{{ $message }}</span> @enderror
             </div>
             <div class="col-12">
-                <button type="submit" class="btn btn-primary mt-2">Create</button>
+                <button type="submit" class="btn btn-primary">Create</button>
             </div>
         </div>
     </form>

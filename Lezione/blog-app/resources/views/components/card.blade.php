@@ -1,6 +1,8 @@
 <article class="card mb-2">
     <div class="card-body">
-        <span>{{ $category }}</span>
+        @foreach($categories as $category)
+        <span>{{ $category->name }}</span>
+        @endforeach
         <h4>{{ $title }}</h4>
         <p>{{ $description }}</p>
         <div class="text-end"> 

@@ -34,7 +34,6 @@ Route::prefix('account')->middleware('auth')->group(function () {
 
     Route::resource('/categories', CategoryController::class);
 
-    Route::resource('/articles', ArticleController::class);
 
 
     /*

@@ -4,17 +4,17 @@
 
     <div>
         @if($articles)
-            @foreach($articles as $article)
-                <x-card
-                    :category="$article->category->name"
-                    :title="$article->title"
-                    :description="$article->description"
-                    :route="route('article', $article)"
-                />
-            @endforeach
-        @else
-            <p>Non ci sono articoli disponibili</p>
-        @endif
+        @foreach($articles as $article)
+            <x-card
+                :categories="$article->categories"
+                :title="$article->title"
+                :description="$article->description"
+                :route="route('article', $article)"
+            />
+        @endforeach
+    @else
+        <p>Non ci sono articoli disponibili</p>
+    @endif
     </div>
         
 

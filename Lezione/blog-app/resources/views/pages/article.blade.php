@@ -8,7 +8,9 @@
 
         </div>
     </div> --}}
-    <span>{{ $article->category->name }}</span>
+    @foreach($article->categories as $category)
+    <span>{{ $category->name }}</span>
+    @endforeach
     <h1 class="title">{{ $article->title }}</h1>
 
     {{-- <div class="my-3">

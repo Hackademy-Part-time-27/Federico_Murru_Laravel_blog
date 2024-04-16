@@ -22,15 +22,16 @@ class StoreCategoryRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => 'required|max:50'
+            'name' => 'required|max:50',
+            // 'description' => 'required|max:255',
         ];
     }
 
     public function messages(): array
     {
         return [
-            'name.required' => 'Il campo e obbligatorio',
-            'name.max' => 'Il campo non puo essere piu lungo di 50 caratteri',
+            'title.required' => 'Il campo Titolo è obbligatorio.',
+            'title.max' => 'Il campo Titolo non può essere più lungo di :max caratteri.',
         ];
     }
 }
