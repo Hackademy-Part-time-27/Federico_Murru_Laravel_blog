@@ -18,16 +18,16 @@
                 <div class="col-12">
                     <label for="categories">Category</label>
                     @foreach($categories as $category)
-                    <div class="form-check">
-                        <input class="form-check-input"
-                            @checked($article->categories->contains($category->id))
-                            name="categories[]"
-                            type="checkbox" value="{{ $category->id }}">
-                        <label class="form-check-label" for="flexCheckDefault">
-                            {{ $category->name }}
-                        </label>
-                    </div>
-                    @endforeach
+                            <div class="form-check">
+                                <input class="form-check-input"
+                                    @checked($article->categories->contains($category->id))
+                                    name="categories[]"
+                                    type="checkbox" value="{{ $category->id }}">
+                                <label class="form-check-label" for="flexCheckDefault">
+                                    {{ $category->name }}
+                                </label>
+                            </div>
+                            @endforeach
                     @error('categories') <span class="text-danger small fw-bold">{{ $message }}</span> @enderror
                 </div>
                 <div class="col-12">
