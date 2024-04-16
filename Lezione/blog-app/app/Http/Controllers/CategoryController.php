@@ -65,13 +65,15 @@ class CategoryController extends Controller
      */
     public function destroy(Category $category)
     {
-        if ($category->articles->count()) {
-            //return redirect()->back()->with(['warning' => 'Attenzione non puoi cancellare...']);
+        /*if($category->articles->count()) {
+            // return redirect()->back()->with(['warning' => 'Attenzione non puoi cancellare...']);
             // $category->articles()->delete();
             \App\Models\Article::where('category_id', $category->id)->delete();
-        }
+        }*/
 
+        $category->articles()->detach();
         $category->delete();
+
 
         return redirect()->back()->with(['success' => 'Categoria cancellata correttamente.']);
     }

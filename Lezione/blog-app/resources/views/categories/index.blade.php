@@ -31,12 +31,12 @@
                     </ul>
                 </td>
            
-                <td class="text-end">
-                    <a href="{{ route('categories.edit', $category) }}" class="btn btn-secondary btn-sm">modifica</a>
+                <td>
+                    <a href="{{ route('categories.edit', $category) }}" class="btn btn-secondary btn-sm">Edit</a>
                     <form class="d-inline ms-2" action="{{ route('categories.destroy', $category) }}" method="POST">
                         @csrf
                         @method('DELETE')
-                        <button type="submit" class="btn btn-danger btn-sm">cancella</button>
+                        <button type="submit" class="btn btn-danger btn-sm">Delete</button>
                     </form>
                 </td>
             </tr>
