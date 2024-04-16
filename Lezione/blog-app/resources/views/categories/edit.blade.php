@@ -1,6 +1,6 @@
 <x-layout title="Modifica Categoria">
-    <a href="{{ route('categories.index') }}" class="text-secondary">indietro</a>
-    <h1>Modifica Categoria</h1>
+    <a href="{{ route('categories.index') }}" class="text-secondary">back</a>
+    <h1>Edit Category</h1>
 
     <x-success />
 
