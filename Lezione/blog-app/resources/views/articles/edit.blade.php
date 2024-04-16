@@ -16,9 +16,12 @@
                         </div>
                         <div class="col-12">
                             <label for="category">Category</label>
-                                <select name="category" id="category" class="form-control">
+                            <select name="category_id" id="category_id" class="form-control">
                                 @foreach($categories as $category)
-                                <option value="{{ $category->name }}" @selected($category->name === $article->category)>{{ $category->name }}</option>
+                                <option
+                                    value="{{ $category->id }}"
+                                    @selected($category->id === $article->category_id)
+                                    >{{ $category->name }}</option>
                                 @endforeach
                             </select>
                             @error('category') <span class="text-danger small fw-bold">{{ $message }}</span> @enderror

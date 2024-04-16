@@ -2,20 +2,15 @@
     <h1 class="title" style="color: red">Articoli</h1>
 
 
-        <div class="container">
-            @if($articles)
-            @foreach($articles as $index => $article)
-                @if($article['visible'])
-                
+    <div>
+        @if($articles)
+            @foreach($articles as $article)
                 <x-card
-                :category="$article->category"
-                :title="$article->title"
-                :description="$article->description"
-                :route="route('article', $article)"
-                
-            />
-                @endif
-                
+                    :category="$article->category->name"
+                    :title="$article->title"
+                    :description="$article->description"
+                    :route="route('article', $article)"
+                />
             @endforeach
         @else
             <p>Non ci sono articoli disponibili</p>

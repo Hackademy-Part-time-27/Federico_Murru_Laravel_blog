@@ -15,9 +15,9 @@
             <thead>
                 <tr>
                     <th>#</th>
-                    <th>Titolo</th>
-                    <th>Categoria</th>
-                    <th>Visibile</th>
+                    <th>Title</th>
+                    <th>Category</th>
+                    <th>Visible</th>
                     <th></th>
                 </tr>
             </thead>
@@ -39,11 +39,11 @@
                         @endif
                     </td>
                     <td>
-                        <a href="{{ route('articles.edit', $article) }}" class="btn btn-sm btn-secondary">modifica</a>
+                        <a href="{{ route('articles.edit', $article) }}" class="btn btn-sm btn-secondary">edit</a>
                         <form class="d-inline ms-2" action="{{ route('articles.destroy', $article) }}" method="POST">
                             @csrf
                             @method('DELETE')
-                            <button type="submit" class="btn btn-sm btn-danger">cancella</button>
+                            <button type="submit" class="btn btn-sm btn-danger">delete</button>
                         </form>
                     </td>
                 </tr>

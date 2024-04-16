@@ -14,7 +14,11 @@ class ArticleController extends Controller
 
     public function index()
     {
-        return view('articles.index', ['articles' => Article::all()]);
+        $articles = Article::where('user_id', auth()->user()->id)
+            ->orderBy('created_at', 'DESC')
+            ->get();
+
+        return view('articles.index', ['articles' => $articles]);
     }
 
     public function create()
@@ -48,7 +52,7 @@ class ArticleController extends Controller
     public function store(StoreArticleRequest $request)
     {
         // dd($request->all());
-        $article = Article::create($request->all());
+        $article = Article::create(array_merge($request->all(), ['user_id' => auth()->user()->id]));
 
         // Qui ci assicuriamo che il file esista e sia stato caricato correttamente
         if ($request->hasFile('image') && $request->file('image')->isValid()) {

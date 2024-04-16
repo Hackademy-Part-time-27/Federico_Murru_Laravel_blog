@@ -11,6 +11,10 @@
     <span>{{ $article->category->name }}</span>
     <h1 class="title">{{ $article->title }}</h1>
 
+    {{-- <div class="my-3">
+        Autore: {{ $article->user->name }} 
+    </div> --}}
+
     <p>{{ $article->description }}</p>
 
     @if($article->image)
