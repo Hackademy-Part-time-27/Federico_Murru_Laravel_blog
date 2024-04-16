@@ -8,7 +8,7 @@
         </div>
     </div>
 
-    <x-success />
+    <x-warning />
    {{-- <a href="{{ route('categories.index') }}" class="text-secondary">indietro</a>--}} 
 
     <table class="table table-bordered mt-4">
