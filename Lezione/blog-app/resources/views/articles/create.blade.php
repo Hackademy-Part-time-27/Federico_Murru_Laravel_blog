@@ -1,4 +1,4 @@
-<x-layout title="Creater Articles">
+<x-layout title="Create Articles">
 
     <div class="row">
         <div class="col-lg-6 mx-auto">
@@ -31,12 +31,12 @@
             </div>
             <div class="col-12">
                 <label for="category">Category</label>
-                    <select name="category" id="category" class="form-control">
+                <select name="category_id" id="category_id" class="form-control">
                     @foreach($categories as $category)
-                    <option value="{{ $category->name }}">{{ $category->name }}</option>
+                    <option value="{{ $category->id }}">{{ $category->name }}</option>
                     @endforeach
                 </select>
-                @error('category') <span class="text-danger small fw-bold">{{ $message }}</span> @enderror
+                @error('category_id') <span class="text-danger small fw-bold">{{ $message }}</span> @enderror
             </div>
             <div class="col-12">
                 <label for="description">Description</label>

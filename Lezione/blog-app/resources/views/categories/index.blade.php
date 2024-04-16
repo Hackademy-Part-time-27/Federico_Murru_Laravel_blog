@@ -14,7 +14,8 @@
     <table class="table table-bordered mt-4">
         <thead>
             <th>#</th>
-            <th>Nome</th>
+            <th>Name</th>
+            <th>Linked Articles</th>
             <th></th>
         </thead>
         <tbody>
@@ -22,6 +23,14 @@
             <tr>
                 <td>{{ $category->id }}</td>
                 <td>{{ $category->name }}</td>
+                <td>
+                    <ul>
+                        @foreach($category->articles as $article)
+                        <li><a href="{{ route('article', $article) }}" target="_blank">{{ $article->title }}</a></li>
+                        @endforeach
+                    </ul>
+                </td>
+           
                 <td class="text-end">
                     <a href="{{ route('categories.edit', $category) }}" class="btn btn-secondary btn-sm">modifica</a>
                     <form class="d-inline ms-2" action="{{ route('categories.destroy', $category) }}" method="POST">

@@ -47,6 +47,7 @@ class ArticleController extends Controller
     }
     public function store(StoreArticleRequest $request)
     {
+        // dd($request->all());
         $article = Article::create($request->all());
 
         // Qui ci assicuriamo che il file esista e sia stato caricato correttamente
